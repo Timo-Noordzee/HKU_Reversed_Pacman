@@ -3,20 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum GameState {
+	GameOver,
+	Win,
+	Game
+}
+
 public class GameManager : MonoBehaviour {
 
 	[Header("Settings")]
 	public Vector3 pacmanSpawnPoint;
 	public Vector3 ghostSpawnPoint;
 	public float ghostSpawnDelay = 10.0f;
+	public static GameState gameState = GameState.Game;
 
 	[Header("Ghosts")]
-	public int controlledGhostIndex = 0;
+	private int controlledGhostIndex = 0;
+	public int ControlledGhostIndex {
+		get { return controlledGhostIndex; }
+		set {
+			controlledGhostIndex = value;
+			ghostImage.sprite = ghosts[controlledGhostIndex].sprite;
+		}
+	}
 	public List<Ghost> ghosts;
 
 	[Header("UI Elements")]
 	public Text scoreText;
 	public Text livesText;
+	public Image ghostImage;
 
 	private static GameManager instance;
 	public static GameManager Instance {
@@ -52,7 +67,7 @@ public class GameManager : MonoBehaviour {
 			lives = value;
 			Instance.livesText.text = "Lives: " + value;
 			if (lives <= 0) {
-
+				Application.Quit();
 			}
 		}
 	}
@@ -64,10 +79,6 @@ public class GameManager : MonoBehaviour {
 	}
 
 	private void Start() {
-		foreach (GameObject ghost in GameObject.FindGameObjectsWithTag("Ghost")) {
-			ghosts.Add(ghost.GetComponent<Ghost>());
-		}
-		ghosts.Reverse();
 		spawnGhostsCoroutine = StartCoroutine(spawnGhosts());
 	}
 
@@ -83,6 +94,7 @@ public class GameManager : MonoBehaviour {
 
 	private void OnPacmanDeath() {
 		Lives--;
+		controlledGhostIndex = 0;
 		StopCoroutine(spawnGhostsCoroutine);
 		spawnGhostsCoroutine = StartCoroutine(spawnGhosts());
 	}
@@ -102,13 +114,17 @@ public class GameManager : MonoBehaviour {
 
 	private void Update() {
 		if (Input.GetButtonDown("Blinky")) {
-			selectGhostEvent(0);
+			ControlledGhostIndex = 0;
+			selectGhostEvent(ControlledGhostIndex);
 		} else if (Input.GetButtonDown("Pinky")) {
-			selectGhostEvent(1);
+			ControlledGhostIndex = 1;
+			selectGhostEvent(ControlledGhostIndex);
 		} else if (Input.GetButtonDown("Inky")) {
-			selectGhostEvent(2);
+			ControlledGhostIndex = 2;
+			selectGhostEvent(ControlledGhostIndex);
 		} else if (Input.GetButtonDown("Clyde")) {
-			selectGhostEvent(3);
+			ControlledGhostIndex = 3;
+			selectGhostEvent(ControlledGhostIndex);
 		}
 	}
 }

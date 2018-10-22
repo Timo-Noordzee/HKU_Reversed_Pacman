@@ -7,12 +7,14 @@ public class Ghost : MonoBehaviour {
 
 	[Header("Settings")]
 	public int ghostId;
+	public bool frightened;
 	public float movementSpeed;
 	public float turningDelay = 1.0f;
+	public Sprite sprite;
 	public Color color;
-	public bool frightened;
 
 	[Header("Movement")]
+	public bool alive;
 	public bool playerControlled;
 	public bool PlayerControlled {
 		get { return playerControlled; }
@@ -48,10 +50,15 @@ public class Ghost : MonoBehaviour {
 	}
 
 	public void resetGhost() {
+		alive = true;
 		transform.position = waitingPosition;
 		this.enabled = false;
 		GetComponent<CircleCollider2D>().enabled = false;
 		ghostController.enabled = false;
+		if (frightenedCoroutine != null) StopCoroutine(frightenedCoroutine);
+		frightened = false;
+		animator.SetBool("frightened", frightened);
+		animator.SetInteger("frightenedState", 0);
 	}
 
 	public void requestPath() {
@@ -156,12 +163,15 @@ public class Ghost : MonoBehaviour {
 
 	private IEnumerator getFrightened() {
 		frightened = true;
+		animator.SetBool("frightened", frightened);
+		animator.SetInteger("frightenedState", 0);
 		yield return new WaitForSeconds(10.0f);
 		for (int i = 0; i < 8; i++) {
 			yield return new WaitForSeconds(0.5f);
 			animator.SetInteger("frightenedState", i % 2);
 		}
 		frightened = false;
+		animator.SetBool("frightened", frightened);
 	}
 
 	private IEnumerator waitForNextTurn() {
@@ -171,7 +181,6 @@ public class Ghost : MonoBehaviour {
 	}
 
 	private void updateAnimation() {
-		animator.SetBool("frightened", frightened);
 		animator.SetFloat("dirX", direction.x);
 		animator.SetFloat("dirY", direction.y);
 	}

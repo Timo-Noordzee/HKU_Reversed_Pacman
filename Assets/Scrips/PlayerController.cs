@@ -70,6 +70,7 @@ public class PlayerController : MonoBehaviour {
 
 	private void onPacmanDeath() {
 		targetNode = grid.getNodeFromPosition(GameManager.Instance.pacmanSpawnPoint);
+		GetComponent<CircleCollider2D>().enabled = true;
 		direction = Vector2.zero;
 		nextDirection = Vector2.zero;
 		animator.SetBool("alive", true);
@@ -99,9 +100,10 @@ public class PlayerController : MonoBehaviour {
 	private void OnCollisionEnter2D(Collision2D other) {
 		if (other.gameObject.CompareTag("Ghost")) {
 			if (other.gameObject.GetComponent<Ghost>().frightened) {
-
+				GameManager.Score += 250;
 			} else {
 				alive = false;
+				GetComponent<CircleCollider2D>().enabled = false;
 				StartCoroutine(deathAnimation());
 			}
 		}
