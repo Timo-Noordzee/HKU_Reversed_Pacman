@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 213058198}
   - component: {fileID: 213058197}
   m_Layer: 2
-  m_Name: Pacman
+  m_Name: '- Pacman'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -257,7 +257,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &245491839
 GameObject:
@@ -290,9 +290,9 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 16, y: -46}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 65, y: -220}
+  m_SizeDelta: {x: -1381, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &245491841
 MonoBehaviour:
@@ -317,10 +317,10 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 77d01962903c69b44b6532ca997f5ad9, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 0
+    m_MaxSize: 60
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -770,7 +770,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &481958533
 BoxCollider2D:
@@ -1853,9 +1853,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 16, y: -16}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 65, y: -85}
+  m_SizeDelta: {x: -1381, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1001121201
 MonoBehaviour:
@@ -1880,10 +1880,10 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 77d01962903c69b44b6532ca997f5ad9, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 0
+    m_MaxSize: 60
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1928,10 +1928,10 @@ RectTransform:
   m_Father: {fileID: 1591879138}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -16, y: -16}
-  m_SizeDelta: {x: 46.03, y: 30}
+  m_AnchoredPosition: {x: -1551, y: -354}
+  m_SizeDelta: {x: -1616, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1068269691
 MonoBehaviour:
@@ -1956,16 +1956,16 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 77d01962903c69b44b6532ca997f5ad9, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 2
+    m_MaxSize: 60
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Ghost
+  m_Text: 'Ghost:'
 --- !u!222 &1068269692
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2018,10 +2018,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2063,7 +2063,7 @@ RectTransform:
   - {fileID: 1068269690}
   - {fileID: 322411922}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2187,7 +2187,7 @@ GameObject:
   - component: {fileID: 1787274156}
   - component: {fileID: 1787274155}
   m_Layer: 2
-  m_Name: Inky
+  m_Name: '- Inky'
   m_TagString: Ghost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2242,6 +2242,7 @@ MonoBehaviour:
   turningDelay: 0.05
   sprite: {fileID: 21300150, guid: 22de5db27ccc48049b37a0caf5d12b54, type: 3}
   color: {r: 0, g: 1, b: 1, a: 1}
+  alive: 0
   playerControlled: 0
   hasPath: 0
   requestingPath: 0
@@ -2345,7 +2346,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1915494252
 GameObject:
@@ -2362,7 +2363,7 @@ GameObject:
   - component: {fileID: 1915494257}
   - component: {fileID: 1915494258}
   m_Layer: 2
-  m_Name: Blinky
+  m_Name: '- Blinky'
   m_TagString: Ghost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2425,7 +2426,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1915494255
 Rigidbody2D:
@@ -2511,6 +2512,7 @@ MonoBehaviour:
   turningDelay: 0.05
   sprite: {fileID: 21300090, guid: 22de5db27ccc48049b37a0caf5d12b54, type: 3}
   color: {r: 1, g: 0.37254903, b: 0.37254903, a: 1}
+  alive: 0
   playerControlled: 0
   hasPath: 0
   requestingPath: 0
@@ -2552,11 +2554,11 @@ RectTransform:
   m_Father: {fileID: 1068269690}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -15}
-  m_SizeDelta: {x: 25, y: 25}
-  m_Pivot: {x: 0.5, y: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 80, y: 80}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1959593854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2606,7 +2608,7 @@ GameObject:
   - component: {fileID: 2044419464}
   - component: {fileID: 2044419463}
   m_Layer: 2
-  m_Name: Pinky
+  m_Name: '- Pinky'
   m_TagString: Ghost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2661,6 +2663,7 @@ MonoBehaviour:
   turningDelay: 0.05
   sprite: {fileID: 21300120, guid: 22de5db27ccc48049b37a0caf5d12b54, type: 3}
   color: {r: 1, g: 0.72156864, b: 1, a: 1}
+  alive: 0
   playerControlled: 0
   hasPath: 0
   requestingPath: 0
@@ -2764,7 +2767,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2128196840
 GameObject:
@@ -2781,7 +2784,7 @@ GameObject:
   - component: {fileID: 2128196842}
   - component: {fileID: 2128196841}
   m_Layer: 2
-  m_Name: Clyde
+  m_Name: '- Clyde'
   m_TagString: Ghost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2836,6 +2839,7 @@ MonoBehaviour:
   turningDelay: 0.05
   sprite: {fileID: 21300176, guid: 22de5db27ccc48049b37a0caf5d12b54, type: 3}
   color: {r: 1, g: 0.72156864, b: 0.31764707, a: 1}
+  alive: 0
   playerControlled: 0
   hasPath: 0
   requestingPath: 0
@@ -2939,5 +2943,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

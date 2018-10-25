@@ -8,7 +8,7 @@ public class Grid : MonoBehaviour {
 
 	[Tooltip("Grid size, x=width, y=height")]
 	public Vector2 gridSize;
-	public int maxHeapSize {
+	public int MaxHeapSize {
 		get { return (int) (gridSize.x + 1 * gridSize.y + 1); }
 	}
 	public Node[, ] grid;

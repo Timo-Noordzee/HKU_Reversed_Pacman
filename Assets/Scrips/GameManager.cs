@@ -3,19 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum GameState {
-	GameOver,
-	Win,
-	Game
-}
-
 public class GameManager : MonoBehaviour {
 
 	[Header("Settings")]
 	public Vector3 pacmanSpawnPoint;
 	public Vector3 ghostSpawnPoint;
 	public float ghostSpawnDelay = 10.0f;
-	public static GameState gameState = GameState.Game;
 
 	[Header("Ghosts")]
 	private int controlledGhostIndex = 0;
@@ -107,8 +100,7 @@ public class GameManager : MonoBehaviour {
 
 	private IEnumerator spawnGhosts() {
 		for (int i = 0; i < ghosts.Count; i++) {
-			yield return new WaitForSeconds(ghostSpawnDelay * (i));
-			ghosts[i].spawnGhost(i == 0);
+			yield return new WaitForSeconds(ghostSpawnDelay * (i)); 
 		}
 	}
 

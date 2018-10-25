@@ -13,10 +13,9 @@ public class Ghost : MonoBehaviour {
 	public Sprite sprite;
 	public Color color;
 
-	[Header("Movement")]
-	public bool alive;
-	public bool playerControlled;
-	public bool PlayerControlled {
+	private bool alive;
+	private bool playerControlled;
+	private bool PlayerControlled {
 		get { return playerControlled; }
 		set {
 			GetComponent<GhostController>().enabled = value;
@@ -24,18 +23,17 @@ public class Ghost : MonoBehaviour {
 			if (playerControlled == false) requestPath();
 		}
 	}
-	public bool hasPath = false;
-	public bool requestingPath = false;
-	public bool waitingForNextMove = false;
-	[Space(5)]
-	public int waypointIndex;
+	private int waypointIndex;
+	private Vector3 waitingPosition;
+	private Vector3 target;
+	private Vector3[] path;
+	private bool hasPath = false;
+	private bool requestingPath = false;
+	private bool waitingForNextMove = false;
 	private Vector2 direction;
-	[Space(5)]
-	public Vector3 waitingPosition;
-	public Vector3 target;
-	public Vector3[] path;
 
 	private Coroutine frightenedCoroutine;
+	private Coroutine respawnCoroutine;
 
 	[HideInInspector] public Rigidbody2D rigid;
 	[HideInInspector] public Animator animator;
@@ -103,6 +101,7 @@ public class Ghost : MonoBehaviour {
 
 	private void onPacmanDeath() {
 		resetGhost();
+		StopCoroutine(respawnCoroutine);
 		path = null;
 	}
 
@@ -159,6 +158,16 @@ public class Ghost : MonoBehaviour {
 				}
 			}
 		}
+	}
+
+	public void respawnGhost() {
+		respawnCoroutine = StartCoroutine(respawnGhostCoroutine());
+	}
+
+	private IEnumerator respawnGhostCoroutine() {
+		resetGhost();
+		yield return new WaitForSeconds(5.0f);
+		spawnGhost();
 	}
 
 	private IEnumerator getFrightened() {

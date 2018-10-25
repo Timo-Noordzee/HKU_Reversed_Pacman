@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-	[SerializeField] private float _speed = 30.0f;
-	public float speed {
-		get { return _speed; }
-		set { _speed = value; }
-	}
-
+	public float speed = 30.0f;
 	public Pathfinding pathfinding;
 	public Grid grid;
 
@@ -100,11 +95,14 @@ public class PlayerController : MonoBehaviour {
 	private void OnCollisionEnter2D(Collision2D other) {
 		if (other.gameObject.CompareTag("Ghost")) {
 			if (other.gameObject.GetComponent<Ghost>().frightened) {
+				other.gameObject.GetComponent<Ghost>().respawnGhost();
 				GameManager.Score += 250;
 			} else {
-				alive = false;
-				GetComponent<CircleCollider2D>().enabled = false;
-				StartCoroutine(deathAnimation());
+				if (alive) {
+					alive = false;
+					GetComponent<CircleCollider2D>().enabled = false;
+					StartCoroutine(deathAnimation());
+				}
 			}
 		}
 	}

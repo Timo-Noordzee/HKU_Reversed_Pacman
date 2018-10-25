@@ -13,8 +13,6 @@ public static class EventManager {
 
 	private static Dictionary<EventType, Action> events = new Dictionary<EventType, Action>();
 
-	private static Dictionary<EventType, List<object>> eventsWithArg = new Dictionary<EventType, List<object>>();
-
 	public static void registerEventListener(EventType eventType, Action action) {
 		if (!events.ContainsKey(eventType)) {
 			events.Add(eventType, action);
